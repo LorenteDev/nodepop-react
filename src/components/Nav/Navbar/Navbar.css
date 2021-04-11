@@ -1,0 +1,15 @@
+.navbar {
+    background-color: #BCF5C2;
+}
+
+.nav-logo {
+    height: 40px;
+}
+
+.navlink {
+    color: #71A876;
+}
+
+.navlink:hover {
+    color: #DEFFE1;
+}

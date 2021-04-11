@@ -1,4 +1,5 @@
 import "./Advert.css";
+import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/button";
 import Modal from "react-bootstrap/modal";
 import { useState } from "react";
@@ -41,38 +42,42 @@ const Advert = (props) => {
 
   return (
     <div>
-      <div>
-        <img
-          className="advert-picture"
-          src={data.photo ? baseUrl + data.photo : placeholderImage}
-          alt={data.name}
-        />
-      </div>
-      <div>
-        <span className="advert-name">{data.name}</span>
-      </div>
-      <div>
-        <span className="advert-price">{data.price}€</span>
-      </div>
-      <div className="advert-tag-list d-flex flex-column">
-        {data.tags.map((tag) => (
-          <span className="advert-tag" key={tag}>
-            {tag}
+      <div className="text-center">
+        <Card className="single-advert text-center">
+          <div>
+            <img
+              className="mt-2 advert-picture"
+              src={data.photo ? baseUrl + data.photo : placeholderImage}
+              alt={data.name}
+            />
+          </div>
+          <div>
+            <span className="advert-name">{data.name}</span>
+          </div>
+          <div>
+            <span className="advert-price">{data.price}€</span>
+          </div>
+          <div className="advert-tag-list d-flex flex-column">
+            {data.tags.map((tag) => (
+              <span className="advert-tag" key={tag}>
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div>
+            <span className="advert-sale">
+              {data.sale ? "En venta" : "Se compra"}
+            </span>
+          </div>
+          <span className="advert-date">
+            {new Date(Date.parse(data.createdAt)).toLocaleString("es-ES")}
           </span>
-        ))}
-      </div>
-      <div>
-        <span className="advert-sale">
-          {data.sale ? "En venta" : "Se compra"}
-        </span>
-      </div>
-      <span className="advert-date">
-        {new Date(Date.parse(data.createdAt)).toLocaleString("es-ES")}
-      </span>
-      <div>
-        <Button variant="danger" onClick={handleShow}>
-          Eliminar anuncio
-        </Button>
+          <div className="mb-2">
+            <Button variant="danger" onClick={handleShow}>
+              Eliminar anuncio
+            </Button>
+          </div>
+        </Card>
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

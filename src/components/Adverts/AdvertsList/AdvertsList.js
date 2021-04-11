@@ -4,7 +4,10 @@ import { useHistory } from "react-router-dom";
 import storage from "../../../utils/storage";
 import axios from "axios";
 import Button from "react-bootstrap/button";
+import "./AdvertsList.css";
+
 let token;
+
 if (storage.get("Authorization")) {
   token = storage.get("Authorization");
 } else {
@@ -108,7 +111,7 @@ const AdvertsList = () => {
   }, []);
 
   return (
-    <div>
+    <>
       <div className="filters">
         <label>
           Nombre
@@ -119,7 +122,7 @@ const AdvertsList = () => {
           />
         </label>
         <div className="radio-buttons">
-          <label>
+          <label className="mr-3">
             En venta
             <input
               type="radio"
@@ -129,7 +132,7 @@ const AdvertsList = () => {
               onChange={(e) => saleChange(e.target.value)}
             />
           </label>
-          <label>
+          <label className="mr-3">
             Se compra
             <input
               type="radio"
@@ -151,7 +154,7 @@ const AdvertsList = () => {
           </label>
         </div>
         <div className="price-range">
-          <label>
+          <label className="mr-3">
             Mínimo
             <input
               className="min-range"
@@ -177,6 +180,7 @@ const AdvertsList = () => {
             <label className="tag" key={tag}>
               {tag.charAt(0).toUpperCase() + tag.slice(1)}
               <input
+                className="mr-3"
                 type="checkbox"
                 name="tags"
                 value={tag}
@@ -185,7 +189,7 @@ const AdvertsList = () => {
             </label>
           ))}
         </div>
-        <Button variant="primary" onClick={applyFilter}>
+        <Button className="mb-3" variant="primary" onClick={applyFilter}>
           Filtrar
         </Button>
       </div>
@@ -198,7 +202,7 @@ const AdvertsList = () => {
           </Button>
         )}
       </div>
-    </div>
+    </>
   );
 };
 

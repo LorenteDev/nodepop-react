@@ -8,7 +8,6 @@ function LoginForm() {
   const [remember, setRemember] = useState(false);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  console.log(window.token);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,9 +42,9 @@ function LoginForm() {
   };
 
   return (
-    <div>
-      <form className="login-form" onSubmit={handleSubmit}>
-        <label>
+    <>
+      <form className="login-form text-center col" onSubmit={handleSubmit}>
+        <label className="row">
           Email
           <input
             type="text"
@@ -54,7 +53,7 @@ function LoginForm() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>
-        <label>
+        <label className="row">
           Contraseña
           <input
             type="password"
@@ -63,7 +62,7 @@ function LoginForm() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <label>
+        <label className="row align-items-center">
           Recuérdame
           <input
             type="checkbox"
@@ -71,10 +70,12 @@ function LoginForm() {
             onChange={(e) => setRemember(e.target.checked)}
           />
         </label>
-        <button disabled={isLoading}>Iniciar sesión</button>
+        <button className="row" disabled={isLoading}>
+          Iniciar sesión
+        </button>
       </form>
       {error && <span className="login-error-message">{error}</span>}
-    </div>
+    </>
   );
 }
 

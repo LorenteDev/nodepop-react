@@ -1,0 +1,21 @@
+body {
+    background-color: #DEFFE1 !important;
+}
+
+Button {
+    background-color: #71A876 !important;
+    border-color: #71A876 !important;
+    color: #DEFFE1 !important;
+}
+
+.btn-danger {
+    background-color: #F5BCCF !important;
+    border-color: #F5BCCF !important;
+    color: #A86077 !important;
+}
+
+h1 {
+    color: white;
+    text-shadow: -1px 0 #71A876, 0 1px #71A876, 1px 0 #71A876, 0 -1px #71A876;
+
+}

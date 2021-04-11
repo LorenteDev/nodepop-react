@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import storage from "../../../utils/storage";
 import axios from "axios";
+import "./NewAdvertForm.css";
+
 let token;
 if (storage.get("Authorization")) {
   token = storage.get("Authorization");
@@ -92,7 +94,7 @@ function NewAdvertForm() {
   return (
     <div>
       <form className="login-form" onSubmit={handleSubmit}>
-        <label>
+        <label className="mr-2">
           Nombre
           <input
             type="text"
@@ -101,7 +103,7 @@ function NewAdvertForm() {
             onChange={(e) => setName(e.target.value)}
           />
         </label>
-        <label>
+        <label className="mr-2">
           ¿En venta?
           <input
             type="checkbox"
@@ -124,6 +126,7 @@ function NewAdvertForm() {
             <label className="tag" key={tag}>
               {tag.charAt(0).toUpperCase() + tag.slice(1)}
               <input
+                className="mr-3"
                 type="checkbox"
                 name="tags"
                 value={tag}
